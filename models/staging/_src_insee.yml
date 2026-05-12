@@ -1,0 +1,508 @@
+sources:
+  - name: insee
+    database: raw
+    schema: insee
+    description: Open source data from INSEE
+    tables:
+      - name: communes_2022
+        description: Open source data from French municipalities in 2022
+        columns:
+          - name: num
+            data_type: number
+            description: Primary key of the dataset
+            data_tests:
+              - unique
+              - not_null
+              
+          - name: code_insee
+            data_type: varchar
+            description : Unique identifier of a community
+            data_tests:
+              - unique
+              - not_null
+
+          - name: nom_standard
+            data_type: varchar
+          - name: nom_sans_pronom
+            data_type: varchar
+          - name: nom_a
+            data_type: varchar
+          - name: nom_de
+            data_type: varchar
+          - name: nom_sans_accent
+            data_type: varchar
+          - name: nom_standard_majuscule
+            data_type: varchar
+          - name: typecom
+            data_type: varchar
+          - name: typecom_texte
+            data_type: varchar
+          - name: reg_code
+            data_type: varchar
+          - name: reg_nom
+            data_type: varchar
+          - name: dep_code
+            data_type: varchar
+          - name: dep_nom
+            data_type: varchar
+          - name: canton_code
+            data_type: varchar
+          - name: canton_nom
+            data_type: varchar
+          - name: epci_code
+            data_type: varchar
+          - name: epci_nom
+            data_type: varchar
+          - name: academie_code
+            data_type: varchar
+          - name: academie_nom
+            data_type: varchar
+          - name: code_postal
+            data_type: varchar
+          - name: codes_postaux
+            data_type: varchar
+          - name: zone_emploi
+            data_type: varchar
+          - name: code_insee_centre_zone_emploi
+            data_type: varchar
+          - name: population
+            data_type: number
+          - name: superficie_hectare
+            data_type: number
+          - name: superficie_km2
+            data_type: number
+          - name: densite
+            data_type: number
+          - name: altitude_moyenne
+            data_type: number
+          - name: altitude_minimale
+            data_type: number
+          - name: altitude_maximale
+            data_type: number
+          - name: latitude_mairie
+            data_type: number
+          - name: longitude_mairie
+            data_type: number
+          - name: latitude_centre
+            data_type: number
+          - name: longitude_centre
+            data_type: number
+          - name: grille_densite
+            data_type: varchar
+          - name: gentile
+            data_type: varchar
+          - name: url_wikipedia
+            data_type: varchar
+          - name: url_villedereve
+            data_type: varchar
+
+      - name: communes_2023
+        description: Open source data from French municipalities in 2023
+        columns:
+          - name: num
+            data_type: varchar
+            description: Primary key of the dataset
+            data_tests:
+              - unique
+              - not_null
+
+          - name: code_insee
+            data_type: varchar
+            description : Unique identifier of a community
+            data_tests:
+              - unique
+              - not_null
+
+          - name: nom_standard
+            data_type: varchar
+          - name: nom_sans_pronom
+            data_type: varchar
+          - name: nom_a
+            data_type: varchar
+          - name: nom_de
+            data_type: varchar
+          - name: nom_sans_accent
+            data_type: varchar
+          - name: nom_standard_majuscule
+            data_type: varchar
+          - name: typecom
+            data_type: varchar
+          - name: typecom_texte
+            data_type: varchar
+          - name: reg_code
+            data_type: varchar
+          - name: reg_nom
+            data_type: varchar
+          - name: dep_code
+            data_type: varchar
+          - name: dep_nom
+            data_type: varchar
+          - name: canton_code
+            data_type: varchar
+          - name: canton_nom
+            data_type: varchar
+          - name: epci_code
+            data_type: varchar
+          - name: epci_nom
+            data_type: varchar
+          - name: academie_code
+            data_type: varchar
+          - name: academie_nom
+            data_type: varchar
+          - name: code_postal
+            data_type: varchar
+          - name: codes_postaux
+            data_type: varchar
+          - name: zone_emploi
+            data_type: varchar
+          - name: code_insee_centre_zone_emploi
+            data_type: varchar
+          - name: population
+            data_type: number
+          - name: superficie_hectare
+            data_type: number
+          - name: superficie_km2
+            data_type: number
+          - name: densite
+            data_type: number
+          - name: altitude_moyenne
+            data_type: number
+          - name: altitude_minimale
+            data_type: number
+          - name: altitude_maximale
+            data_type: number
+          - name: latitude_mairie
+            data_type: number
+          - name: longitude_mairie
+            data_type: number
+          - name: latitude_centre
+            data_type: number
+          - name: longitude_centre
+            data_type: number
+          - name: grille_densite
+            data_type: varchar
+          - name: gentile
+            data_type: varchar
+          - name: url_wikipedia
+            data_type: varchar
+          - name: url_villedereve
+            data_type: varchar
+
+      - name: communes_2024
+        description: Open source data from French municipalities in 2024
+        columns:
+          - name: num
+            data_type: varchar
+            description: Primary key of the dataset
+            data_tests:
+              - unique
+              - not_null
+
+          - name: code_insee
+            data_type: varchar
+            description : Unique identifier of a community
+            data_tests:
+              - unique
+              - not_null
+
+          - name: nom_standard
+            data_type: varchar
+          - name: nom_sans_pronom
+            data_type: varchar
+          - name: nom_a
+            data_type: varchar
+          - name: nom_de
+            data_type: varchar
+          - name: nom_sans_accent
+            data_type: varchar
+          - name: nom_standard_majuscule
+            data_type: varchar
+          - name: typecom
+            data_type: varchar
+          - name: typecom_texte
+            data_type: varchar
+          - name: reg_code
+            data_type: number
+          - name: reg_nom
+            data_type: varchar
+          - name: dep_code
+            data_type: varchar
+          - name: dep_nom
+            data_type: varchar
+          - name: canton_code
+            data_type: varchar
+          - name: canton_nom
+            data_type: varchar
+          - name: epci_code
+            data_type: varchar
+          - name: epci_nom
+            data_type: varchar
+          - name: academie_code
+            data_type: varchar
+          - name: academie_nom
+            data_type: varchar
+          - name: code_postal
+            data_type: varchar
+          - name: codes_postaux
+            data_type: varchar
+          - name: zone_emploi
+            data_type: varchar
+          - name: code_insee_centre_zone_emploi
+            data_type: varchar
+          - name: population
+            data_type: number
+          - name: superficie_hectare
+            data_type: number
+          - name: superficie_km2
+            data_type: number
+          - name: densite
+            data_type: number
+          - name: altitude_moyenne
+            data_type: number
+          - name: altitude_minimale
+            data_type: number
+          - name: altitude_maximale
+            data_type: number
+          - name: latitude_mairie
+            data_type: number
+          - name: longitude_mairie
+            data_type: number
+          - name: latitude_centre
+            data_type: number
+          - name: longitude_centre
+            data_type: number
+          - name: grille_densite
+            data_type: varchar
+          - name: gentile
+            data_type: varchar
+          - name: url_wikipedia
+            data_type: varchar
+          - name: url_villedereve
+            data_type: varchar
+
+      - name: communes_2025
+        description: Open source data from French municipalities in 2025
+        columns:
+          - name: num
+            data_type: varchar
+            description: Primary key of the dataset
+            data_tests:
+              - unique
+              - not_null
+
+          - name: code_insee
+            data_type: varchar
+            description : Unique identifier of a community
+            data_tests:
+              - unique
+              - not_null
+
+          - name: nom_standard
+            data_type: varchar
+          - name: nom_sans_pronom
+            data_type: varchar
+          - name: nom_a
+            data_type: varchar
+          - name: nom_de
+            data_type: varchar
+          - name: nom_sans_accent
+            data_type: varchar
+          - name: nom_standard_majuscule
+            data_type: varchar
+          - name: typecom
+            data_type: varchar
+          - name: typecom_texte
+            data_type: varchar
+          - name: reg_code
+            data_type: varchar
+          - name: reg_nom
+            data_type: varchar
+          - name: dep_code
+            data_type: varchar
+          - name: dep_nom
+            data_type: varchar
+          - name: canton_code
+            data_type: varchar
+          - name: canton_nom
+            data_type: varchar
+          - name: epci_code
+            data_type: varchar
+          - name: epci_nom
+            data_type: varchar
+          - name: academie_code
+            data_type: varchar
+          - name: academie_nom
+            data_type: varchar
+          - name: code_postal
+            data_type: varchar
+          - name: codes_postaux
+            data_type: varchar
+          - name: zone_emploi
+            data_type: varchar
+          - name: code_insee_centre_zone_emploi
+            data_type: varchar
+          - name: code_unite_urbaine
+            data_type: varchar
+          - name: nom_unite_urbaine
+            data_type: varchar
+          - name: taille_unite_urbaine
+            data_type: number
+          - name: type_commune_unite_urbaine
+            data_type: varchar
+          - name: statut_commune_unite_urbaine
+            data_type: varchar
+          - name: population
+            data_type: number
+          - name: superficie_hectare
+            data_type: number
+          - name: superficie_km2
+            data_type: number
+          - name: densite
+            data_type: number
+          - name: altitude_moyenne
+            data_type: number
+          - name: altitude_minimale
+            data_type: number
+          - name: altitude_maximale
+            data_type: number
+          - name: latitude_mairie
+            data_type: number
+          - name: longitude_mairie
+            data_type: number
+          - name: latitude_centre
+            data_type: number
+          - name: longitude_centre
+            data_type: number
+          - name: grille_densite
+            data_type: number
+          - name: grille_densite_texte
+            data_type: varchar
+          - name: niveau_equipements_services
+            data_type: number
+          - name: niveau_equipements_services_texte
+            data_type: varchar
+          - name: gentile
+            data_type: varchar
+          - name: url_wikipedia
+            data_type: varchar
+          - name: url_villedereve
+            data_type: varchar
+
+      - name: revenus_2021
+        description: Open source data from French revenues by municipality in 2021
+        columns:
+          - name: "nom géographique gms"
+            data_type: varchar
+          - name: "code géographique"
+            data_type: varchar
+            description : Unique identifier of a community
+          - name: "libellé géographique"
+            data_type: varchar
+          - name: "[disp] nbre de ménages fiscaux"
+            data_type: number
+          - name: "[disp] nbre de personnes dans les ménages fiscaux"
+            data_type: number
+          - name: "[disp] nbre d'unités de consommation dans les ménages fiscaux"
+            data_type: number
+          - name: "[disp] 1ᵉʳ quartile (€)"
+            data_type: number
+          - name: "[disp] médiane (€)"
+            data_type: number
+          - name: "[disp] 3ᵉ quartile (€)"
+            data_type: number
+          - name: "[disp] écart interquartile (€)"
+            data_type: number
+          - name: "[disp] 1ᵉʳ décile (€)"
+            data_type: number
+          - name: "[disp] 2ᵉ décile (€)"
+            data_type: number
+          - name: "[disp]3ᵉ décile (€)"
+            data_type: number
+          - name: "[disp] 4ᵉ décile (€)"
+            data_type: number
+          - name: "[disp] 6ᵉ décile (€)"
+            data_type: number
+          - name: "[disp] 7ᵉ décile (€)"
+            data_type: number
+          - name: "[disp] 8ᵉ décile (€)"
+            data_type: number
+          - name: "[disp] 9ᵉ décile (€)"
+            data_type: number
+          - name: "[disp] rapport interdécile 9ᵉ décile/1ᵉʳ decile"
+            data_type: number
+          - name: "[disp] s80/20"
+            data_type: number
+          - name: "[disp] iice de gini"
+            data_type: number
+          - name: "[disp] part des revenus d’activité (%)"
+            data_type: number
+          - name: "[disp] dont part des salaires et traitements(%)"
+            data_type: number
+          - name: "[disp] dont part des iemnités de chômage (%)"
+            data_type: number
+          - name: "[disp] dont part des revenus des activités non salariées (%)"
+            data_type: number
+          - name: "[disp] part des pensions, retraites et rentes (%)"
+            data_type: number
+          - name: "[disp] part des revenus du patrimoine et autres revenus (%)"
+            data_type: number
+          - name: "[disp] part de l'ensemble des prestations sociales (%)"
+            data_type: number
+          - name: "[disp] dont part des prestations familiales (%)"
+            data_type: number
+          - name: "[disp] dont part des minima sociaux (%)"
+            data_type: number
+          - name: "[disp] dont part des prestations logement (%)"
+            data_type: number
+          - name: "[disp] part des impôts (%)"
+            data_type: number
+          - name: "[dec] nbre de ménages fiscaux"
+            data_type: number
+          - name: "[dec] nbre de personnes dans les ménages fiscaux"
+            data_type: number
+          - name: "[dec] nbre d'unités de consommation dans les ménages fiscaux"
+            data_type: number
+          - name: "[dec] part des ménages fiscaux imposés (%)"
+            data_type: number
+          - name: "[dec] 1ᵉʳ quartile (€)"
+            data_type: number
+          - name: "[dec] médiane (€)"
+            data_type: number
+          - name: "[dec] 3ᵉ quartile (€)"
+            data_type: number
+          - name: "[dec] écart interquartile (€)"
+            data_type: number
+          - name: "[dec] 1ᵉʳ décile (€)"
+            data_type: number
+          - name: "[dec] 2ᵉ décile (€)"
+            data_type: number
+          - name: "[dec] 3ᵉ décile  (€)"
+            data_type: number
+          - name: "[dec] 4ᵉ décile (€)"
+            data_type: number
+          - name: "[dec] 6ᵉ décile (€)"
+            data_type: number
+          - name: "[dec] 7ᵉ décile (€)"
+            data_type: number
+          - name: "[dec] 8ᵉ décile (€)"
+            data_type: number
+          - name: "[dec] 9ᵉ décile (€)"
+            data_type: number
+          - name: "[dec] rapport interdécile d9/d1"
+            data_type: varchar
+          - name: "[dec] s80/s20"
+            data_type: number
+          - name: "[dec] iice de gini"
+            data_type: number
+          - name: "[dec] part des revenus d’activité (%)"
+            data_type: number
+          - name: "[dec] dont part des salaires et traitements (%)"
+            data_type: number
+          - name: "[dec] dont part des iemnités de chômage (%)"
+            data_type: number
+          - name: "[dec] dont part des revenus des activités non salariées (%)"
+            data_type: number
+          - name: "[dec] part des pensions, retraites et rentes (%)"
+            data_type: number
+          - name: "[dec] part des autres revenus (%)"
+            data_type: number
