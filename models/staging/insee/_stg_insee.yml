@@ -1,0 +1,56 @@
+models:
+  - name: stg_insee__municipalities
+    description: French municipalities
+    columns:
+      - name: year
+        description: Year of the data
+        data_tests:
+          - not_null
+          
+      - name: municipality_id
+        description: Municipality unique identifier
+        data_tests:
+          - not_null
+          
+      - name: municipality_name
+        description: Municipality name
+      - name: municipality_population
+        description: Municipality population for the year indicated
+      - name: region_id
+        description: Region unique identifier
+      - name: region_name
+        description: Region name
+      - name: department_id
+        description: Department unique identifier
+      - name: department_name
+        description: Department name
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - year
+              - municipality_id
+
+  - name: stg_insee__incomes
+    description: French incomes by municipalities
+    columns:
+      - name: year
+        description: Year of the data
+        data_tests:
+          - not_null
+          
+      - name: municipality_id
+        description: Municipality unique identifier
+        data_tests:
+          - not_null
+          
+      - name: municipality_name
+        description: Municipality name
+      - name: municipality_median_income
+        description: Municipality median income for the year indicated
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - year
+              - municipality_id

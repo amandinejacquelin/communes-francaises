@@ -1,0 +1,137 @@
+sources:
+  - name: insee
+    database: raw
+    schema: insee
+    description: Open source data from INSEE
+    tables:
+      - name: communes_2022
+        description: Open source data from French municipalities in 2022
+        columns:
+          - name: num
+            data_type: number
+            description: Primary key of the dataset
+            data_tests:
+              - unique
+              - not_null
+              
+          - name: code_insee
+            data_type: varchar
+            description : Unique identifier of a municipality
+            data_tests:
+              - unique
+              - not_null
+
+          - name: nom_standard
+            data_type: varchar
+          - name: reg_code
+            data_type: varchar
+          - name: reg_nom
+            data_type: varchar
+          - name: dep_code
+            data_type: varchar
+          - name: dep_nom
+            data_type: varchar
+          - name: population
+            data_type: number
+
+      - name: communes_2023
+        description: Open source data from French municipalities in 2023
+        columns:
+          - name: num
+            data_type: varchar
+            description: Primary key of the dataset
+            data_tests:
+              - unique
+              - not_null
+
+          - name: code_insee
+            data_type: varchar
+            description : Unique identifier of a municipality
+            data_tests:
+              - unique
+              - not_null
+
+          - name: nom_standard
+            data_type: varchar
+          - name: reg_code
+            data_type: varchar
+          - name: reg_nom
+            data_type: varchar
+          - name: dep_code
+            data_type: varchar
+          - name: dep_nom
+            data_type: varchar
+          - name: population
+            data_type: number
+
+      - name: communes_2024
+        description: Open source data from French municipalities in 2024
+        columns:
+          - name: num
+            data_type: varchar
+            description: Primary key of the dataset
+            data_tests:
+              - unique
+              - not_null
+
+          - name: code_insee
+            data_type: varchar
+            description : Unique identifier of a municipality
+            data_tests:
+              - unique
+              - not_null
+
+          - name: nom_standard
+            data_type: varchar
+          - name: reg_code
+            data_type: varchar
+          - name: reg_nom
+            data_type: varchar
+          - name: dep_code
+            data_type: varchar
+          - name: dep_nom
+            data_type: varchar
+          - name: population
+            data_type: number
+
+      - name: communes_2025
+        description: Open source data from French municipalities in 2025
+        columns:
+          - name: num
+            data_type: varchar
+            description: Primary key of the dataset
+            data_tests:
+              - unique
+              - not_null
+
+          - name: code_insee
+            data_type: varchar
+            description : Unique identifier of a municipality
+            data_tests:
+              - unique
+              - not_null
+
+          - name: nom_standard
+            data_type: varchar
+          - name: reg_code
+            data_type: varchar
+          - name: reg_nom
+            data_type: varchar
+          - name: dep_code
+            data_type: varchar
+          - name: dep_nom
+            data_type: varchar
+          - name: population
+            data_type: number
+
+      - name: revenus_2021
+        description: Open source data from French revenues by municipality in 2021
+        columns:
+          - name: "Nom géographique GMS"
+            data_type: varchar
+          - name: "Code géographique"
+            data_type: varchar
+            description : Unique identifier of a municipality
+          - name: "[DISP] Médiane (€)"
+            data_type: number
+            description: Median income of a municipality
