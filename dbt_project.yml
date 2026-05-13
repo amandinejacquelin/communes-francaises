@@ -37,6 +37,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   communes_francaises:
-    # Applies to all files under models/example/
-    example:
+    marts:
       +materialized: table
