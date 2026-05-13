@@ -1,3 +1,4 @@
+-- snapshot model using latest available population and income data (years may differ)
 select 
     m.department_id,
     sum(i.municipality_median_income * p.municipality_population) / sum(p.municipality_population) as department_average_income_estimated

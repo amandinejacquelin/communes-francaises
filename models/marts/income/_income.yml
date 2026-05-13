@@ -1,0 +1,45 @@
+models:
+  - name: fct_income_municipality
+    description: Median income by municipality and by year
+    columns:
+      - name: year
+      - name: municipality_id
+        data_tests:
+            - relationships:
+                arguments:
+                  to: ref('dim_municipalities')
+                  field: municipality_id
+      - name: municipality_median_income
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "municipality_median_income >= 0"
+
+  - name: fct_income_municipality_snapshot
+    description: Median income of municipalities for the last available year
+    columns:
+      - name: year
+      - name: municipality_id
+      - name: municipality_median_income
+
+  - name: mart_income_department_estimated
+    description: Average income estimated by department based on the latest available data
+    columns:
+      - name: department_id
+        data_tests:
+            - relationships:
+                arguments:
+                  to: ref('dim_departments')
+                  field: department_id
+      - name: department_average_income_estimated
+
+  - name: mart_income_region_estimated
+    description: Average income estimated by region based on the latest available data
+    columns:
+      - name: region_id
+        data_tests:
+            - relationships:
+                arguments:
+                  to: ref('dim_regions')
+                  field: region_id
+      - name: region_average_income_estimated
