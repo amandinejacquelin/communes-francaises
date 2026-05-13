@@ -1,6 +1,6 @@
 models:
   - name: fct_income_municipality
-    description: Median income by municipality and by year
+    description: Median income by municipality and by year. Grain -> municipality_id + year
     columns:
       - name: year
       - name: municipality_id
@@ -16,30 +16,35 @@ models:
             expression: "municipality_median_income >= 0"
 
   - name: fct_income_municipality_snapshot
-    description: Median income of municipalities for the last available year
+    description: Median income of municipalities for the last available year.
     columns:
       - name: year
       - name: municipality_id
+        description: Primary key
       - name: municipality_median_income
 
   - name: mart_income_department_estimated
     description: Average income estimated by department based on the latest available data
     columns:
       - name: department_id
+        description: Primary key
         data_tests:
             - relationships:
                 arguments:
                   to: ref('dim_departments')
                   field: department_id
       - name: department_average_income_estimated
+        description : Weighted average of municipality median incomes using municipality population as weights, aggregated at department level
 
   - name: mart_income_region_estimated
     description: Average income estimated by region based on the latest available data
     columns:
       - name: region_id
+        description: Primary key
         data_tests:
             - relationships:
                 arguments:
                   to: ref('dim_regions')
                   field: region_id
       - name: region_average_income_estimated
+        description: Weighted average of municipality median incomes using municipality population as weights, aggregated at region level

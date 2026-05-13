@@ -4,6 +4,7 @@ models:
     description: French municipalities
     columns:
       - name: municipality_id
+        description: Primary key
         data_tests:
           - not_null
           - unique
@@ -25,6 +26,7 @@ models:
     description: French departments
     columns:
       - name: department_id
+        description: Primary key
         data_tests:
           - not_null
           - unique
@@ -40,6 +42,7 @@ models:
     description: French regions
     columns:
       - name: region_id
+        description: Primary key
         data_tests:
           - not_null
           - unique
@@ -47,7 +50,7 @@ models:
 
   # FACTS - POPULATION BY YEAR
   - name: fct_population_municipality
-    description: Population by municipality and by year
+    description: Population by municipality and by year. Grain -> municipality_id + year
     columns:
       - name: year
       - name: municipality_id
@@ -68,7 +71,7 @@ models:
             expression: "municipality_population >= 0"
 
   - name: fct_population_department
-    description: Population by department and by year
+    description: Population by department and by year. Grain -> department_id + year
     columns:
       - name: year
       - name: department_id
@@ -86,7 +89,7 @@ models:
               - department_id
 
   - name: fct_population_region
-    description: Population by region and by year
+    description: Population by region and by year. Grain -> region_id + year
     columns:
       - name: year
       - name: region_id
@@ -105,7 +108,7 @@ models:
 
   # FACTS - POPULATION GROWTH BY YEAR
   - name: fct_population_municipality_growth
-    description: Population growth by municipality and by year
+    description: Population growth by municipality and by year. Grain -> municipality_id + year
     columns:
       - name: year
       - name: municipality_id
@@ -117,7 +120,7 @@ models:
         description: (population - previous_population) / previous_population
 
   - name: fct_population_department_growth
-    description: Population growth by department and by year
+    description: Population growth by department and by year. Grain -> department_id + year
     columns:
       - name: year
       - name: department_id
@@ -129,7 +132,7 @@ models:
         description: (population - previous_population) / previous_population
 
   - name: fct_population_region_growth
-    description: Population growth by region and by year
+    description: Population growth by region and by year. Grain -> region_id + year
     columns:
       - name: year
       - name: region_id
@@ -146,4 +149,5 @@ models:
     columns:
       - name: year
       - name: municipality_id
+        description: Primary key
       - name: muncipality_population
