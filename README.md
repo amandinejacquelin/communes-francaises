@@ -24,32 +24,34 @@
   - geography : population, growth
   - income : income metrics and aggregations
 
- ### 5.Data model
- **Dimensions**
- - `dim_municipalities`
- - `dim_departments`
- - `dim_regions`
+### 5.Data model
+**Dimensions**
+- `dim_municipalities`
+- `dim_departments`
+- `dim_regions`
 
- **Facts**
- - `fct_population_municipality` (grain: municipality_id + year)
- - `fct_income_municipality` (grain: municipality_id + year)
+**Facts**
+- `fct_population_municipality` (grain: municipality_id + year)
+- `fct_income_municipality` (grain: municipality_id + year)
+**Derived models**
+- Population by department and region
+- Population growth by municipality, department and region
+- Estimated income by department and region (population-weighted)
 
- **Derived models**
- - Population by department and region
- - Population growth by municipality, department and region
- - Estimated income by department and region (population-weighted)
+### 6.DAG 
+![DBT DAG](assets/dag.png)
 
- ### 6.Assumptions / limitations
- - Department and region income are estimates based on population-weighted municipal median income
- - Population and income snapshots are not aligned temporally
- - Aggregations use latest available data per source
+### 7.Assumptions / limitations
+- Department and region income are estimates based on population-weighted municipal median income
+- Population and income snapshots are not aligned temporally
+- Aggregations use latest available data per source
 
- ### 7.Data quality
- - not_null on primary keys and measures
- - relationships between facts and dimensions
- - uniqueness of defined grains
+### 8.Data quality
+- not_null on primary keys and measures
+- relationships between facts and dimensions
+- uniqueness of defined grains
 
- ### 8.Execution
+### 9.Execution
 ```
 dbt run 
 dbt test
