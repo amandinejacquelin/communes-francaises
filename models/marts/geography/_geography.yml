@@ -1,0 +1,153 @@
+models:
+  # DIMENSIONS
+  - name: dim_municipalities
+    description: French municipalities
+    columns:
+      - name: municipality_id
+        description: Primary key
+        data_tests:
+          - not_null
+          - unique
+      - name: municipality_name
+      - name: department_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_departments')
+                field: department_id
+      - name: region_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_regions')
+                field: region_id
+
+  - name: dim_departments
+    description: French departments
+    columns:
+      - name: department_id
+        description: Primary key
+        data_tests:
+          - not_null
+          - unique
+      - name: department_name
+      - name: region_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_regions')
+                field: region_id
+
+  - name: dim_regions
+    description: French regions
+    columns:
+      - name: region_id
+        description: Primary key
+        data_tests:
+          - not_null
+          - unique
+      - name: region_name
+
+  # FACTS - POPULATION BY YEAR
+  - name: fct_population_municipality
+    description: Population by municipality and by year. Grain -> municipality_id + year
+    columns:
+      - name: year
+      - name: municipality_id
+        data_tests:
+            - relationships:
+                arguments:
+                  to: ref('dim_municipalities')
+                  field: municipality_id
+      - name: municipality_population
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - year
+              - municipality_id
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "municipality_population >= 0"
+
+  - name: fct_population_department
+    description: Population by department and by year. Grain -> department_id + year
+    columns:
+      - name: year
+      - name: department_id
+        data_tests:
+            - relationships:
+                arguments:
+                  to: ref('dim_departments')
+                  field: department_id
+      - name: department_population
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - year
+              - department_id
+
+  - name: fct_population_region
+    description: Population by region and by year. Grain -> region_id + year
+    columns:
+      - name: year
+      - name: region_id
+        data_tests:
+            - relationships:
+                arguments:
+                  to: ref('dim_regions')
+                  field: region_id
+      - name: region_population
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments: 
+            combination_of_columns:
+              - year
+              - region_id
+
+  # FACTS - POPULATION GROWTH BY YEAR
+  - name: fct_population_municipality_growth
+    description: Population growth by municipality and by year. Grain -> municipality_id + year
+    columns:
+      - name: year
+      - name: municipality_id
+      - name: municipality_population
+      - name: municipality_previous_population
+      - name: absolute_growth
+        description: population - previous_population
+      - name: growth_rate
+        description: (population - previous_population) / previous_population
+
+  - name: fct_population_department_growth
+    description: Population growth by department and by year. Grain -> department_id + year
+    columns:
+      - name: year
+      - name: department_id
+      - name: department_population
+      - name: department_previous_population
+      - name: absolute_growth
+        description: population - previous_population
+      - name: growth_rate
+        description: (population - previous_population) / previous_population
+
+  - name: fct_population_region_growth
+    description: Population growth by region and by year. Grain -> region_id + year
+    columns:
+      - name: year
+      - name: region_id
+      - name: region_population
+      - name: region_previous_population
+      - name: absolute_growth
+        description: population - previous_population
+      - name: growth_rate
+        description: (population - previous_population) / previous_population
+
+  # SNAPSHOTS
+  - name: fct_population_municipality_snapshot
+    description: Population of municipalities for the last available year
+    columns:
+      - name: year
+      - name: municipality_id
+        description: Primary key
+      - name: muncipality_population
